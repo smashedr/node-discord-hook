@@ -43,5 +43,5 @@ jobs:
       - name: "Bake and Push"
         uses: docker/bake-action@v5
         with:
-          files: docker-bake.hcl
+          files: docker-compose-build.yaml
           push: true

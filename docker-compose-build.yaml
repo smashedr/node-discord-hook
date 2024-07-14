@@ -4,6 +4,10 @@ services:
   nginx:
     build:
       context: nginx
+      x-bake:
+        platforms:
+          - linux/amd64
+          - linux/arm64
     image: ghcr.io/smashedr/node-discord-hook-nginx:latest
     deploy:
       replicas: 1
@@ -36,6 +40,10 @@ services:
   app:
     build:
       context: app
+      x-bake:
+        platforms:
+          - linux/amd64
+          - linux/arm64
     image: ghcr.io/smashedr/node-discord-hook-app:latest
     env_file: settings.env
     command: "node app.js"
