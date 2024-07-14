@@ -3,7 +3,7 @@ version: "3.8"
 services:
   nginx:
     build:
-      context: nginx
+      context: ./nginx
     image: ghcr.io/smashedr/node-discord-hook-nginx:latest
     deploy:
       replicas: 1
@@ -35,7 +35,7 @@ services:
 
   app:
     build:
-      context: app
+      context: ./app
     image: ghcr.io/smashedr/node-discord-hook-app:latest
     env_file: settings.env
     command: "node app.js"
