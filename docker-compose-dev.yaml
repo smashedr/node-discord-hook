@@ -18,6 +18,7 @@ services:
   app:
     build: app
     image: node-discord-hook-app:latest
+    env_file: settings.env
     command: "npx nodemon app.js"
     deploy:
       replicas: 1

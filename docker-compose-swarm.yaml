@@ -15,10 +15,10 @@ services:
         - traefik.enable=true
         - traefik.docker.network=traefik-public
         - traefik.constraint-label=traefik-public
-        - traefik.http.routers.flask-random-image-http.rule=Host(`discord.cssnr.com`)
+        - traefik.http.routers.flask-random-image-http.rule=Host(`relay.cssnr.com`)
         - traefik.http.routers.flask-random-image-http.entrypoints=http
         - traefik.http.routers.flask-random-image-http.middlewares=https-redirect
-        - traefik.http.routers.flask-random-image-https.rule=Host(`discord.cssnr.com`)
+        - traefik.http.routers.flask-random-image-https.rule=Host(`relay.cssnr.com`)
         - traefik.http.routers.flask-random-image-https.entrypoints=https
         - traefik.http.routers.flask-random-image-https.tls=true
         - traefik.http.services.flask-random-image-https.loadbalancer.server.port=80
@@ -37,6 +37,7 @@ services:
     build:
       context: app
     image: ghcr.io/smashedr/node-discord-hook-app:latest
+    env_file: settings.env
     command: "node app.js"
     deploy:
       replicas: 1
