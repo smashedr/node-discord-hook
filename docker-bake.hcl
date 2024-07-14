@@ -1,10 +1,12 @@
 group "default" {
   targets = ["node-discord-hook"]
+  platforms = ["linux/amd64", "linux/arm64"]
 }
 
 target "node-discord-hook" {
-  context = "."
-  dockerfile = "Dockerfile"
   compose = ["docker-compose-swarm.yaml"]
-  platforms = ["linux/amd64", "linux/arm64"]
+  tags = [
+    "ghcr.io/smashedr/node-discord-hook-nginx:latest",
+    "ghcr.io/smashedr/node-discord-hook-app:latest"
+  ]
 }
