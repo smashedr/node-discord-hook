@@ -1,6 +1,6 @@
 FROM nginx:mainline
 
-LABEL org.opencontainers.image.source="https://github.com/smashedr/node-discord-hook-nginx"
+LABEL org.opencontainers.image.source="https://github.com/smashedr/node-discord-hook"
 LABEL org.opencontainers.image.description="NodeJS Discord Webhook"
 LABEL org.opencontainers.image.authors="smashedr"
 
