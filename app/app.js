@@ -2,7 +2,9 @@ const express = require('express')
 const cors = require('cors')
 
 const port = 3000
-const hooks = process.env.HOOKS.split('\n')
+
+console.debug('process.env.HOOKS:', process.env.HOOKS)
+const hooks = process.env.HOOKS.split(',')
 console.debug('hooks:', hooks)
 
 const tokens = {}
@@ -10,7 +12,7 @@ hooks.forEach((hook) => {
     console.debug('hook:', hook)
     if (hook.includes('/')) {
         const parts = hook.split('/')
-        tokens[parts[0]] = parts[1]
+        tokens[parts[0].trim()] = parts[1].trim()
     }
 })
 console.log('tokens:', tokens)
