@@ -52,6 +52,6 @@ jobs:
         with:
           url: https://portainer-o-us-east-1.hosted-domains.com/
           token: ${{ secrets.PORTAINER_TOKEN }}
-          endpoint: 2
+          endpoint: 1
           name: stack-name
-          file: docker-compose.yaml
+          file: docker-compose-swarm.yaml
