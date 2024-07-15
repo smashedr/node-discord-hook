@@ -52,5 +52,5 @@ jobs:
         with:
           url: https://portainer.cssnr.com/
           token: ${{ secrets.PORTAINER_TOKEN_LOCAL }}
-          file: docker-compose-swarm.yaml
+          file: docker-compose.yaml
           name: node-discord-hook
