@@ -15,9 +15,6 @@ on:
   repository_dispatch:
     types:
       - webhook
-#  pull_request:
-#    branches:
-#      - master
 
 jobs:
   build:
@@ -49,3 +46,12 @@ jobs:
         with:
           files: docker-compose-build.yaml
           push: true
+
+      - name: "Portainer Deploy"
+        uses: cssnr/portainer-stack-deploy-action@master
+        with:
+          url: https://portainer-o-us-east-1.hosted-domains.com/
+          token: ${{ secrets.PORTAINER_TOKEN }}
+          endpoint: 2
+          name: stack-name
+          file: docker-compose.yaml

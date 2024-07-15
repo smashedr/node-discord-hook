@@ -27,7 +27,7 @@ app.get('/app-health-check', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('API Online!')
+    res.send('API Online!!')
 })
 
 app.post('/discord/:id', (req, res) => {
