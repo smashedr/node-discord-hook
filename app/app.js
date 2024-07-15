@@ -35,7 +35,7 @@ app.post('/discord/:id', (req, res) => {
     if (!token) {
         return res.sendStatus(404)
     }
-    const webhook = `https://discord.com/api/webhooks/${req.params.id}/${token}FAIL`
+    const webhook = `https://discord.com/api/webhooks/${req.params.id}/${token}`
     console.log('webhook:', webhook)
     postBody(webhook, req.body)
         .then((response) => {
