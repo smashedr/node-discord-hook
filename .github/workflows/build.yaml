@@ -50,8 +50,7 @@ jobs:
       - name: "Portainer Deploy"
         uses: cssnr/portainer-stack-deploy-action@master
         with:
-          url: https://portainer-o-us-east-1.hosted-domains.com/
+          url: https://portainer.cssnr.com/
           token: ${{ secrets.PORTAINER_TOKEN }}
-          endpoint: 1
-          name: node-discord-hook
           file: docker-compose-swarm.yaml
+          name: node-discord-hook
