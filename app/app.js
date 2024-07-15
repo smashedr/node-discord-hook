@@ -22,6 +22,10 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+app.get('/app-health-check', (req, res) => {
+    res.sendStatus(200)
+})
+
 app.get('/', (req, res) => {
     res.send('API Online!')
 })

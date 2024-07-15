@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  nginx:
+    build:
+      context: nginx
+    image: node-discord-hook-nginx:latest
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 32M
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf localhost:80/health-check || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+
+  app:
+    build:
+      context: app
+    image: node-discord-hook-app:latest
+    env_file: settings.env
+    command: "node app.js"
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 64M
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf localhost:3000/app-health-check || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 3

@@ -45,6 +45,11 @@ services:
         limits:
           cpus: "2.0"
           memory: 64M
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf localhost:3000/app-health-check || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
     networks:
       - internal
 
