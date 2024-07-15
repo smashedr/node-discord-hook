@@ -53,5 +53,5 @@ jobs:
           url: https://portainer-o-us-east-1.hosted-domains.com/
           token: ${{ secrets.PORTAINER_TOKEN }}
           endpoint: 1
-          name: stack-name
+          name: node-discord-hook
           file: docker-compose-swarm.yaml
