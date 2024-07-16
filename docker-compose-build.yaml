@@ -32,7 +32,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
-      start_interval: 5s
     depends_on:
       - app
     networks:
@@ -61,7 +60,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
-      start_interval: 5s
     networks:
       - internal
 
