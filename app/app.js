@@ -11,7 +11,7 @@ const tokens = {}
 hooks.forEach((hook) => {
     console.debug('hook:', hook)
     if (hook.includes('/')) {
-        const parts = hook.split('/')
+        const parts = hook.split('|')
         tokens[parts[0].trim()] = parts[1].trim()
     }
 })
@@ -39,7 +39,7 @@ app.post('/discord/:id', (req, res) => {
     if (!token) {
         return res.sendStatus(404)
     }
-    const webhook = `https://discord.com/api/webhooks/${req.params.id}/${token}`
+    const webhook = `https://discord.com/api/webhooks/${token}`
     console.log('webhook:', webhook)
     postBody(webhook, req.body)
         .then((response) => {
